@@ -1,0 +1,82 @@
+/*---------*/
+/* General */
+/*---------*/
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --primary-color: #9792e4;
+    --secondary-color: #0a0a0a;
+    --secondary-color-dark: #000000;
+}
+
+
+/*------------*/
+/* Basic grid */
+/*------------*/
+
+.section {
+    padding: 2rem 0;
+}
+
+.container {
+    width: 964px;
+    margin: 0 auto;
+    padding: 0 1rem;
+    /* Debug */
+    border: 1px dashed red;
+    height: 100px;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.col {
+    flex-grow: 1;
+    flex-basis: 0;
+}
+
+.col-33 {
+    flex-basis: calc(100% / 3);
+}
+
+.col-66 {
+    flex-basis: calc((100% / 3) * 2);
+}
+
+
+/*------------*/
+/* Responsive */
+/*------------*/
+
+/* Breakpoints
+
+    -lg -> 992px
+    -md -> 768px
+    -sm -> 576px
+
+*/
+
+@media screen and (max-width: 992px) {
+    .container {
+        width: calc(768px - 2rem);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .container {
+        width: calc(576px - 2rem);
+    }
+}
+
+@media screen and (max-width: 576px) {
+    .container {
+        width: calc(100% - 2rem);
+    }
+}
