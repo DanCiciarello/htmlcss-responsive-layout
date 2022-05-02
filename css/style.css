@@ -10,8 +10,33 @@
 
 :root {
     --primary-color: #9792e4;
-    --secondary-color: #0a0a0a;
-    --secondary-color-dark: #000000;
+    --secondary-color: #B5DDFF;
+    --secondary-color-dark: #0084FD;
+    --tertiary-color: #333333;
+}
+
+/*------*/
+/* Flex */
+/*------*/
+
+.flex {
+    display: flex;
+}
+
+.grow {
+    flex-grow: 1;
+}
+
+.h-align {
+    justify-content: center;
+}
+
+.r-align {
+    justify-content: flex-end;
+}
+
+.v-align {
+    align-items: center;
 }
 
 
@@ -26,29 +51,96 @@
 .container {
     width: 964px;
     margin: 0 auto;
-    padding: 0 1rem;
+    padding: .5rem 1rem;
     /* Debug */
     border: 1px dashed red;
-    height: 100px;
 }
 
 .row {
     display: flex;
     flex-wrap: wrap;
+    gap: 1rem;
 }
 
 .col {
-    flex-grow: 1;
     flex-basis: 0;
+    /* Debug */
+    border: 1px dashed black;
 }
 
 .col-33 {
-    flex-basis: calc(100% / 3);
+    flex-basis: calc(100% / 3 - 1rem);
+    /* Debug */
+    border: 1px dashed black;
 }
 
 .col-66 {
-    flex-basis: calc((100% / 3) * 2);
+    flex-basis: calc((100% / 3) * 2 - 1rem);
+    /* Debug */
+    border: 1px dashed black;
 }
+
+
+/*-------------*/
+/* Backgrounds */
+/*-------------*/
+
+.bg-primary {
+    background-color: var(--primary-color);
+}
+
+.bg-secondary-dark {
+    background-color: var(--secondary-color-dark);
+}
+
+.bg-tertiary {
+    background-color: var(--tertiary-color);
+}
+
+
+/*------------*/
+/* Typography */
+/*------------*/
+
+a {
+    text-decoration: none;
+    color: unset;
+}
+
+
+
+/*---------*/
+/* Buttons */
+/*---------*/
+
+.btn {
+    display: inline-block;
+    background-color: #ffffff;
+    color: var(--tertiary-color);
+    padding: 5px 10px;
+    border-radius: 2rem;
+}
+
+
+
+/*----------------*/
+/* Navigation bar */
+/*----------------*/
+
+.lg-menu,
+.md-menu {
+    color: #ffffff;
+}
+
+.md-menu {
+    display: none;
+}
+
+.lg-menu ul li {
+    list-style: none;
+    margin-right: 10px;
+}
+
 
 
 /*------------*/
@@ -73,10 +165,30 @@
     .container {
         width: calc(576px - 2rem);
     }
+
+    .col-md-full {
+        flex-basis: calc(100% - 1rem);
+    }
+
+    .col-md-half {
+        flex-basis: calc((100% / 2) - 1rem);
+    }
+
+    .lg-menu {
+        display: none;
+    }
+
+    .md-menu {
+        display: block;
+    }
 }
 
 @media screen and (max-width: 576px) {
     .container {
         width: calc(100% - 2rem);
+    }
+
+    .col-sm-full {
+        flex-basis: 100%;
     }
 }
